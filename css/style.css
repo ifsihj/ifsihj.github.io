@@ -441,6 +441,7 @@ button {
   }
 }
 .btn:hover {
+  transform: scaleX(1.06) scaleY(1.06);
   box-shadow: var(--redefine-box-shadow-hover);
 }
 .btn:hover,
@@ -1004,7 +1005,6 @@ pre code {
   padding-bottom: 5px;
   overflow: auto;
   margin: 0 !important;
-  border-top: 1px solid var(--shadow-color-1);
 }
 .highlight:hover::-webkit-scrollbar-thumb {
   border: 3px solid rgba(183,183,183,0.3);
@@ -1222,40 +1222,25 @@ pre .deletion {
   top: 0;
 }
 .code-container {
-  background: var(--third-background-color);
+  background: var(--highlight-background);
   border-radius: 18px;
-  box-shadow: var(--redefine-box-shadow-flat);
   padding-top: 40px;
+  padding-left: 5px;
   margin-top: 10px;
   margin-bottom: 1.2rem;
   position: relative;
+  box-shadow: var(--redefine-box-shadow-flat);
 }
 .code-container figcaption {
   font-weight: bold;
   font-size: 16px;
   position: absolute;
-  top: 12px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
 }
 .code-container figcaption a {
   margin-left: 10px;
-}
-.code-container::before {
-  position: absolute;
-  content: attr(data-rel);
-  line-height: 38px;
-  border-radius: 50%;
-  box-shadow: none;
-  height: 12px;
-  left: 12px;
-  position: absolute;
-  width: auto;
-  margin-left: 80px;
-  top: 0;
-  color: var(--default-text-color);
-  font-weight: bold;
-  font-size: 16px;
 }
 .code-container .folded {
   height: 0 !important;
@@ -1265,20 +1250,21 @@ pre .deletion {
   width: 0 !important;
   overflow: hidden !important;
 }
-.code-container::after {
-  content: ' ';
+.code-container::before {
   position: absolute;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: #fc625d;
-  width: 12px;
+  content: attr(data-rel);
+  line-height: 42px;
+  border-radius: 18px;
+  box-shadow: none;
   height: 12px;
-  top: 0;
-  left: 20px;
-  margin-top: 13px;
-  -webkit-box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
-  box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
-  z-index: 3;
+  left: 4px;
+  position: absolute;
+  width: auto;
+  margin-left: 10px;
+  top: 2px;
+  color: var(--default-text-color);
+  font-weight: bold;
+  font-size: 16px;
 }
 .nf-container {
   width: 100%;
@@ -2317,6 +2303,7 @@ html.is-animating .transition-navbar {
 .paginator span.page-number:hover,
 .paginator a.prev:hover,
 .paginator a.next:hover {
+  transform: scaleX(1.06) scaleY(1.06);
   box-shadow: var(--redefine-box-shadow-hover);
 }
 .paginator a.page-number:hover,
@@ -2375,6 +2362,7 @@ html.is-animating .transition-navbar {
   margin-bottom: 0;
 }
 .post-tools-container .article-tools-list li:hover {
+  transform: scaleX(1.06) scaleY(1.06);
   box-shadow: var(--redefine-box-shadow-hover);
 }
 .post-tools-container .article-tools-list li.page-aside-toggle {
@@ -2391,6 +2379,23 @@ html.is-animating .transition-navbar {
   left: 0;
   width: 100%;
   z-index: 1009;
+}
+.progress-bar-container .scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  visibility: hidden;
+  z-index: 1007;
+  background: var(--primary-color);
+  transition-property: color, background, box-shadow, border-color, width, opacity;
+  transition-delay: 0s, 0s, 0s, 0s, 0s, 0s;
+  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s, 0.1s, 0.1s;
+  transition-timing-function: ease, ease, ease, ease, ease, ease;
+}
+.progress-bar-container .scroll-progress-bar.hide {
+  display: none !important;
 }
 html.is-animating .scroll-progress-bar {
   opacity: 0;
@@ -5517,6 +5522,7 @@ html.is-animating .transition-fade-down {
   }
 }
 .home-content-container .home-article-list .home-article-item:hover {
+  transform: scaleX(1.015) scaleY(1.015);
   box-shadow: var(--redefine-box-shadow-hover);
 }
 @media (max-width: 768px) {
